@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
@@ -35,6 +36,13 @@ const LoginForm = () => {
     <div className="flex h-screen">
       <div className="w-full bg-gray-100 flex items-center justify-center">
         <div className="max-w-md w-full p-6">
+          <Image
+            src="/images/mooway_logo.svg" 
+            className="mx-auto h-12 mb-5" 
+            alt="logo"
+            width={600}
+            height={120}
+          />
           <h1 className="text-3xl font-semibold mb-6 text-black text-center">Login</h1>
           {error && <div className="text-red-500 text-center mb-4">{error}</div>}
           <form onSubmit={handleSubmit} className="space-y-4">
