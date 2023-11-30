@@ -81,7 +81,6 @@ const BullshitLog:React.FC<BullshitLogProps> = ({message}:any) => {
     } catch (error) {
       console.error('Error get solution:', error);
     }
-    console.log("isButtonDisabled", isButtonDisabled)
     setIsLoadingSolution(false);
     
   }

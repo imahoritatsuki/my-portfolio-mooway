@@ -105,7 +105,7 @@ export const getBullshitSolutionFromGpt = async (userInput:string) => {
     model: "gpt-3.5-turbo",
     messages: [{
       "role": "system",
-      "content": "あなたは、無意味な仕事に対して解決策を提案するアシスタントです。userの仕事の愚痴に対して、悩みの原因とその解決策を簡潔に250文字以内で分析してください。なお、回答は適切な改行を行なって返してください。"
+      "content": "あなたは、無意味な仕事に対して解決策を提案するアシスタントです。userの仕事の愚痴に対して、悩みの原因とその解決策を簡潔に200文字以内で分析してください。なお、回答は適切な改行を行なって返してください。"
     }, {
       "role": "user",
       "content": userInput
@@ -118,7 +118,6 @@ export const getBullshitSolutionFromGpt = async (userInput:string) => {
   });
 
   const gptbullshitSolution = completion.choices[0].message.content;
-  console.log("gptbullshitSolution", gptbullshitSolution)
   return gptbullshitSolution;
 };
 

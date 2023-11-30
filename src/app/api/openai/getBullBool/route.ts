@@ -11,7 +11,6 @@ export async function POST(request: Request) {
 
   const gptbullshitOrFalse = await sendBullshitOrFalseToGpt(prompt);
 
-  console.log("これはbullshitOrFalse",gptbullshitOrFalse)
   const response = NextResponse.json(gptbullshitOrFalse)
   return response;
   }

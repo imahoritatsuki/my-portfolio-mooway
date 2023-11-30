@@ -17,7 +17,6 @@ export async function POST(request: Request) {
       status: 302, // 一時的リダイレクト
     })
   }
-  console.log("aaa")
   // ユーザーがログインしていない場合はサインアップ処理を実行
   await supabase.auth.signUp({
     email,
@@ -27,15 +26,11 @@ export async function POST(request: Request) {
     },
   })
   .then(({ data, error }) => {
-    console.log("bbb")
     if (error) {
-      console.log(error)
       return error;
     }
-    console.log("",data)
     // 登録されているメールアドレスの場合、空の配列が返ってくる。
     const identities = data.user?.identities;
-    console.log(data)
     if (identities?.length === 0) {
       res = 'duplication'
     }

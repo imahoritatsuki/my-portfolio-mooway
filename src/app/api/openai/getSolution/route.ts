@@ -10,8 +10,6 @@ export async function POST(request: Request) {
   const { prompt, id } = await request.json();
 
   const gptSolutionMessage = await getBullshitSolutionFromGpt(prompt);
-
-  // promptをSupabaseのデータベースに追加する
   
   const { data: insertMessage, error }:any = await supabase
   .from('USER_MESSAGES')
@@ -19,7 +17,6 @@ export async function POST(request: Request) {
     { bullshit_solution: gptSolutionMessage },
   ])
   .eq('id', id)
-  console.log("gptSolutionMessage", gptSolutionMessage)
   
   return NextResponse.redirect(requestUrl.origin, { status: 302 });
 }

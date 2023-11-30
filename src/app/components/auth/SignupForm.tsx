@@ -35,7 +35,6 @@ const SignupForm = () => {
       });
 
       const data = await response.json();
-      console.log(data)
 
       if (data === 'duplication') {
         SetResponsedMessage(true)

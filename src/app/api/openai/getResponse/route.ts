@@ -48,8 +48,6 @@ export async function POST(request: Request) {
     .eq('id', userMessageId)
     .select()
 
-    console.log("BULLSHIT_CONTENTS!!!!",BULLSHIT_CONTENTS)
-    console.log("BULLSHIT_CONTENTS!!!!",err)
   }
   return response;
   }
