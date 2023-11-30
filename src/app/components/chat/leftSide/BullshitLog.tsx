@@ -1,5 +1,5 @@
 'use client'
-import React, { Suspense, useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 type bullshitLog = {
@@ -81,7 +81,6 @@ const BullshitLog:React.FC<BullshitLogProps> = ({message}:any) => {
     } catch (error) {
       console.error('Error get solution:', error);
     }
-    console.log("isButtonDisabled", isButtonDisabled)
     setIsLoadingSolution(false);
     
   }

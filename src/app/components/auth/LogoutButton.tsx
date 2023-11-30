@@ -19,7 +19,7 @@ const LogoutButton = () => {
         console.error('ログイン失敗');
       }
     } catch (error) {
-      // console.log('エラーが発生しました', error);
+      console.log('エラーが発生しました', error);
     }
   };
 

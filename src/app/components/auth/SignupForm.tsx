@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image';
 import Link from 'next/link'
 import React, { FormEvent, useState } from 'react'
 import { z } from 'zod';
@@ -34,7 +35,6 @@ const SignupForm = () => {
       });
 
       const data = await response.json();
-      console.log(data)
 
       if (data === 'duplication') {
         SetResponsedMessage(true)
@@ -55,6 +55,13 @@ const SignupForm = () => {
     <div className="flex h-screen">
       <div className="w-full bg-gray-100  flex items-center justify-center">
         <div className="max-w-md w-full p-6">
+          <Image
+            src="/images/mooway_logo.svg" 
+            className="mx-auto h-12 mb-5" 
+            alt="logo"
+            width={600}
+            height={120}
+          />
           <h1 className="text-3xl font-semibold mb-6 text-black text-center">Sign up</h1>
           {responsed && (
             <div className="my-4 text-sm text-blue-600 text-center">
