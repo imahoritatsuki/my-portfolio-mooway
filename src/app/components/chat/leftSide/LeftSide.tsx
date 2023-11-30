@@ -3,20 +3,6 @@ import BullshitLogArea from './BullshitLogArea'
 import TimeArea from './TimeArea'
 import { getBullshitAreaData } from '../../../../../lib/supabase/getBullshitAreaData';
 
-type LeftSideaProps = {
-  messages: {
-    id: string;
-    content: string;
-    created_at: string;
-    bullshit_title: string;
-    bullshit_description: string;
-    bullshit_solution: string;
-    AI_MESSAGES: {
-      content: string;
-    }[];
-  }[];
-};
-
 const LeftSide = async () => {
   const prebullshitMessages = await getBullshitAreaData()
   const messages = prebullshitMessages.reverse()

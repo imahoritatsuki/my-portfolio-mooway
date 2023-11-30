@@ -33,7 +33,6 @@ const ChatForm = () => {
     }
 
       userMessageId = await res.json();
-      console.log("userMessageId", userMessageId)
     } catch (error) {
       alert("001:エラーが発生しました。ページをリロードします。");
       window.location.reload();
@@ -53,7 +52,6 @@ const ChatForm = () => {
         throw new Error('002:サーバーエラーが発生しました。');
     }
       aiMessage = await res.json();
-      console.log("aiMessage",aiMessage)
     } catch (error) {
       alert("002:エラーが発生しました。ページをリロードします。");
       window.location.reload();
@@ -90,7 +88,6 @@ const ChatForm = () => {
         throw new Error('004:サーバーエラーが発生しました。');
     }
       bullBool = await res.json();
-      console.log("bullBool", bullBool)
     } catch (error) {
       alert("004:エラーが発生しました。ページをリロードします。");
       window.location.reload();

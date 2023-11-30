@@ -75,7 +75,7 @@ const BullshitLogArea:React.FC<LeftSideaProps> = ({messages}) => {
         <h2>本日のブルシットワーク</h2>
       </div>
       {messagesState.map((message: bullshitLog) => {
-        // BULLSHIT_CONTENTSが空ではない場合のみBullshitLogを表示
+        
         if (message.bullshit_title && message.bullshit_title.length > 0) {
           return (
             <div key={message.id}>
@@ -83,7 +83,7 @@ const BullshitLogArea:React.FC<LeftSideaProps> = ({messages}) => {
             </div>
           );
         }
-        return null; // BULLSHIT_CONTENTSが空の場合は何も表示しない
+        return null; 
       })}
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react'
 import { createSupbaseServerClientReadOnly } from '.';
-import { add, endOfDay, set, startOfDay } from 'date-fns';
+import { add, startOfDay } from 'date-fns';
 
 export const getBullshitAreaData = async () => {
   const supabase = await createSupbaseServerClientReadOnly()
