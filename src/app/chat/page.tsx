@@ -1,21 +1,36 @@
-import React from 'react'
-import { readUserSession } from '../../../lib/supabase/readUserSession'
-import LogoutButton from '../components/auth/LogoutButton'
-import Link from 'next/link'
+import LeftSide from '../components/chat/leftSide/LeftSide'
+import ChatArea from '../components/chat/main/ChatArea'
+import { redirect } from 'next/navigation';
+import { createSupbaseServerClientReadOnly } from '../../../lib/supabase';
+import { Suspense } from 'react';
 
 const page = async () => {
 
-  const { data: { session } } = await readUserSession()
-  const user = session?.user
-  return (
-    <>
-      <h1>Chat page</h1>
-      <h2>Email: {user?.email}</h2>
-      <LogoutButton />
-      <Link href="/auth/login" >ログインフォームへ</Link>
-    </>
+  const supabase = await createSupbaseServerClientReadOnly()
+  const { data: userSession } = await supabase.auth.getSession();
+  
+        
+	if (!userSession.session) {
+		return redirect("/auth/login");
+	}
 
-  )
-}
+  return (
+    <div className='h-full'> 
+          <div className='flex h-full'>
+            <div className='w-1/4 h-full hidden lg:block'>
+              <Suspense >
+                <LeftSide />
+              </Suspense>
+            </div>
+            <div className='w-full h-full bg-chat-bgMain lg:w-3/4'>
+              <Suspense >
+                <ChatArea />
+              </Suspense>
+            </div>
+          </div>
+    </div>
+  );
+};
+
 
 export default page
