@@ -9,10 +9,20 @@ export async function POST(request: NextRequest) {
 
   const supabase = await createSupbaseServerClient()
 
-  await supabase.auth.signInWithPassword({
+  const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,
-  })
+  });
+
+  if (error) {
+    // エラーが発生した場合、エラーメッセージを含むレスポンスを返します。
+    return new Response(JSON.stringify({ error: error.message }), {
+      status: 400, // HTTPステータスコード400（Bad Request）を設定
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  }
 
   return NextResponse.redirect(requestUrl.origin, { status: 302 });
 
