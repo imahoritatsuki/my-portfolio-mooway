@@ -34,3 +34,12 @@
 #chat-message-mini {
   font-size: 11px;
 }
+
+#main_container {
+  max-width: 860px
+}
+
+#x_container {
+  max-width: 400px;
+  max-height: 520px
+}
