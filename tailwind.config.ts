@@ -29,7 +29,12 @@ const config: Config = {
         bgMain: '#CAF1F0',
         bgForm: '#7EDDD1',
         userMessage: '#61CFC4',
+      },
+      lp: {
+        topView: '#21D0CF',
+        topButton: '#FEFF79',
       }
+      
     }
   },
   plugins: [],
