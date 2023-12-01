@@ -3,12 +3,10 @@ import Link from 'next/link'
 import { Zen_Maru_Gothic } from "next/font/google";
 import ScrollTop from './components/ScrollTop';
 
-
 const Zen_Maru_500 = Zen_Maru_Gothic({
   weight: "500",
   subsets: ["latin"],
 });
-
 
 export default function Home() {
 
@@ -17,7 +15,7 @@ export default function Home() {
       <div className='bg-lp-topView'>
         <header className='bg-opacity-0 py-4'>
           <div className='container mx-auto w-3/4 flex flex-row justify-between '>
-            <div>
+            <Link href='/'>
               <Image
                 src="/images/mooway_landingpage_headerlogo.png" 
                 className="mx-auto" 
@@ -25,7 +23,7 @@ export default function Home() {
                 width={130}
                 height={20}
               />
-            </div>
+            </Link>
             <div className='text-white'>
               <Link href="/auth/login">ログイン</Link>
             </div>
@@ -38,7 +36,8 @@ export default function Home() {
           </div>
           <div className='flex flex-col'>
             <div className='flex justify-center z-10 translate-y-44  '>
-              <Link href='/auth/signup' className='px-6 py-2 border-2 border-gray-800 rounded-3xl bg-lp-topButton text-gray-700'>
+              <Link href='/auth/signup' 
+                className='px-6 py-2 border-2 border-gray-800 rounded-3xl bg-lp-topButton text-gray-700 hover:'>
                 無料で登録する
               </Link>
             </div>
@@ -72,7 +71,7 @@ export default function Home() {
                 <p>気持ちよく働くためのヒントを提供するAIチャットアプリ</p>
               </div>
                 <hr></hr>
-              <div className='text-center mt-4'>
+              <div className='text-center mt-4 px-6'>
                 <p>MOOWAY!では、あなたと同じ悩みを共有するパートナー「うし本（もと）」が、</p>
                 <p>あなたの愚痴を聞いて、返答したり、問題点をまとめてくれたりします。</p>
               </div>
@@ -96,27 +95,28 @@ export default function Home() {
               </div>
             </section>
             <section className='w-11/12 mx-auto bg-gray-200 py-10 rounded-3xl'>
-              <div id='main_container' className='mx-auto ' >
+              <div id='usecase_container' className='mx-auto ' >
                   <div>
                     <p className='text-center mb-10 text-xl'>
-                      USE CASE
+                      使い方
                     </p>
                   </div>
-                  <div className='flex flex-col-reverse md:flex-row justify-between mb-10 md:px-20'>
-                    <div className='h-56 md:w-96 mx-auto px-2 '>
+                  {/* use 1 */}
+                  <div className='flex flex-col-reverse md:flex-row justify-evenly mb-10 md:px-20'>
+                    <div className='h-42 w-10/12 sm:w-96 md:h-full md:w-2/3 m-auto px-2 flex-grow  '>
                       <Image
                         src="/images/mooway_landingpage_appui_1.png" 
-                        className="mx-auto mb-5 " 
+                        className="mx-auto mb-5 rounded-2xl" 
                         alt="ui"
-                        width={384}
+                        width={800}
                         height={224}
                       />
                     </div>
-                    <div className='md:w-2/5 mx-auto md:mx-0 '>
+                    <div className='md:w-2/5 mx-auto my-auto md:mx-0 '>
                       <p className='text-center w-3/5 mx-auto'>
                         1
                       </p>
-                      <div className='p-4 break-all text-center w-4/5 mx-auto'>
+                      <div className='p-2 break-all text-center w-4/5 mx-auto'>
                         <p>チャットでうし本に愚痴る</p>
                       </div>
                       <div className='p-4 break-all w-4/5 mx-auto'>
@@ -125,44 +125,46 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <div className='flex flex-col md:flex-row w-96 mx-auto justify-between mb-10 md:px-20 md:w-auto'>
-                      <div className='md:w-2/5 mx-auto md:mx-0 '>
-                          <p className='text-center w-3/5 mx-auto'>
-                            2
-                          </p>
-                        <div className='p-4 break-all text-center w-4/5 mx-auto'>
-                          <p>愚痴から自動で課題を抽出</p>
-                        </div>
-                        <div className='p-4 break-all w-4/5 mx-auto'>
-                          <p>愚痴を「職場の課題」として再定義します。</p>
-                          <p>課題を認知することが、無意味な仕事をなくすための重要なステップです。</p>
-                        </div>
+                  {/* use 2 */}
+                  <div className='flex flex-col md:flex-row justify-evenly mb-10 md:px-20'>
+                    <div className='md:w-2/5 mx-auto my-auto md:mx-0 '>
+                      <p className='text-center w-3/5 mx-auto'>
+                        2
+                      </p>
+                      <div className='p-2 break-all text-center w-4/5 mx-auto'>
+                        <p>愚痴から自動で課題を抽出</p>
                       </div>
-                      <div className='h-56 md:w-96 mx-auto px-2 '>
-                        <Image
-                          src="/images/mooway_landingpage_appui_2.png" 
-                          className="mx-auto mb-5 " 
-                          alt="ui"
-                          width={384}
-                          height={224}
-                        />
+                      <div className='p-4 break-all w-4/5 mx-auto'>
+                        <p>愚痴を「職場の課題」として再定義します。</p>
+                        <p>課題を認知することが、無意味な仕事をなくすための重要なステップです。</p>
                       </div>
-                  </div>
-                  <div className='flex flex-col-reverse md:flex-row justify-between mb-10 md:px-20'>
-                    <div className='h-56 md:w-96 mx-auto px-2 '>
+                    </div>
+                    <div className='h-42 w-10/12 sm:w-96 md:h-full md:w-2/3 m-auto px-2 flex-grow '>
                       <Image
-                        src="/images/mooway_landingpage_appui_3.png" 
-                        className="mx-auto mb-5" 
+                        src="/images/mooway_landingpage_appui_2.png" 
+                        className="mx-auto mb-5 rounded-2xl " 
                         alt="ui"
-                        width={384}
+                        width={800}
                         height={224}
                       />
                     </div>
-                    <div className='md:w-2/5 mx-auto md:mx-0 '>
+                  </div>
+                  {/* use 3 */}
+                  <div className='flex flex-col-reverse md:flex-row justify-evenly mb-10 md:px-20'>
+                    <div className='h-42 w-10/12 sm:w-96 md:h-full md:w-2/3 m-auto px-2 flex-grow '>
+                      <Image
+                        src="/images/mooway_landingpage_appui_3.png" 
+                        className="mx-auto mb-5 rounded-2xl " 
+                        alt="ui"
+                        width={800}
+                        height={224}
+                      />
+                    </div>
+                    <div className='md:w-2/5 mx-auto my-auto md:mx-0 '>
                       <p className='text-center w-3/5 mx-auto'>
                         3
                       </p>
-                      <div className='p-4 break-all text-center w-4/5 mx-auto'>
+                      <div className='p-2 break-all text-center w-4/5 mx-auto'>
                         <p>うし本が解決策を提案</p>
                       </div>
                       <div className='p-4 break-all w-4/5 mx-auto'>
@@ -170,7 +172,7 @@ export default function Home() {
                         <p>意外な視点も得られるかも？</p>
                       </div>
                     </div>
-                  </div> 
+                  </div>
               </div>
             </section>
           </div>
